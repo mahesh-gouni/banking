@@ -1,8 +1,8 @@
-package org.docker.jenkin.enitity;
 
-
+package com.neo.mahi.enitity;
+import com.neo.mahi.enitity.TranscationEnity;
+import com.neo.mahi.enitity.UserEnity;
 import jakarta.persistence.*;
-
 
 import java.util.ArrayList;
 import java.util.List;

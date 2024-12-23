@@ -1,9 +1,7 @@
-package org.docker.jenkin.enitity;
 
-
+package com.neo.mahi.enitity;
 import jakarta.persistence.*;
 
-import java.util.List;
 import java.util.Map;
 
 @Entity
@@ -31,8 +29,6 @@ public class LoanEntity {
 
     @ElementCollection
     @CollectionTable(name = "emi_status", joinColumns = @JoinColumn(name = "loan_id"))
-    @MapKeyColumn(name = "month") // This column represents the month
-    @Column(name = "status") // This column represents the EMI status
     private Map<Integer, Boolean> emiStatus;
 
     @OneToOne
@@ -90,10 +86,10 @@ public class LoanEntity {
         this.transcationEnity = transcationEnity;
     }
 
- public  LoanEntity(){
+    public LoanEntity(){
 
 
- }
+    }
 
     public Map<Integer, Boolean> getEmiStatus() {
         return emiStatus;

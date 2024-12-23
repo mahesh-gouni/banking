@@ -1,4 +1,4 @@
-package org.docker.jenkin.enitity;
+package com.neo.mahi.enitity;
 
 
 import jakarta.persistence.*;
