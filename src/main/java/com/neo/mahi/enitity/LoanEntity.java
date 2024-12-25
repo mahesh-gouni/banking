@@ -2,12 +2,16 @@
 package com.neo.mahi.enitity;
 import jakarta.persistence.*;
 
-import java.util.Map;
 
+
+import jakarta.persistence.*;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 @Entity
 @Table(name = "loan")
 public class LoanEntity {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,13 +26,10 @@ public class LoanEntity {
     @Column(name = "emi_amount")
     private double emiAmount;
 
-//    @ElementCollection
-//    @CollectionTable(name = "emi_status", joinColumns = @JoinColumn(name = "loan_id"))
-//    @Column(name = "status")
-//    private List<Boolean> emiStatus;
-
     @ElementCollection
     @CollectionTable(name = "emi_status", joinColumns = @JoinColumn(name = "loan_id"))
+    @MapKeyColumn(name = "month")  // Column for the key (month)
+    @Column(name = "status")      // Column for the value (status)
     private Map<Integer, Boolean> emiStatus;
 
     @OneToOne
@@ -70,27 +71,6 @@ public class LoanEntity {
         this.emiAmount = emiAmount;
     }
 
-//    public List<Boolean> getEmiStatus() {
-//        return emiStatus;
-//    }
-//
-//    public void setEmiStatus(List<Boolean> emiStatus) {
-//        this.emiStatus = emiStatus;
-//    }
-
-    public TranscationEnity getTranscationEnity() {
-        return transcationEnity;
-    }
-
-    public void setTranscationEnity(TranscationEnity transcationEnity) {
-        this.transcationEnity = transcationEnity;
-    }
-
-    public LoanEntity(){
-
-
-    }
-
     public Map<Integer, Boolean> getEmiStatus() {
         return emiStatus;
     }
@@ -99,5 +79,11 @@ public class LoanEntity {
         this.emiStatus = emiStatus;
     }
 
+    public TranscationEnity getTranscationEnity() {
+        return transcationEnity;
+    }
 
+    public void setTranscationEnity(TranscationEnity transcationEnity) {
+        this.transcationEnity = transcationEnity;
+    }
 }
